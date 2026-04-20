@@ -20,8 +20,14 @@
   color: #161643;
 }
 
+/* Force horizontal layout when numberOfMonths > 1 -- default react-day-picker
+   behaviour can collapse to column in narrow containers, and we always want
+   the Airbnb-style side-by-side look. */
 .chekin-rdp .rdp-months {
-  gap: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 28px;
 }
 
 .chekin-rdp .rdp-month_caption {

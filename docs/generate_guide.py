@@ -70,7 +70,7 @@ MARGIN = 54
 FOOTER_Y = 36
 CONTENT_W = PAGE_W - 2 * MARGIN
 
-GUIDE_NAME = 'Chekin UI Kit  -  Frontend Handbook v0.1'
+GUIDE_NAME = 'Chekin UI Kit  -  Frontend Handbook v0.2'
 TOTAL_SECTIONS = 11
 
 # ---------------------------------------------------------- Text helpers ---
@@ -235,7 +235,7 @@ def draw_cover(canvas, doc):
 
     # Metadata block
     meta = [
-        ('Version:', 'v0.1  -  April 2026'),
+        ('Version:', 'v0.2  -  April 2026'),
         ('For:', 'Frontend  -  Backend  -  PM'),
         ('Tool:', 'pnpm monorepo  -  Storybook 8  -  Radix Primitives'),
     ]
@@ -986,48 +986,94 @@ def build_section_5():
 def build_section_6():
     out = []
     out.append(SectionHeader(
-        6, 'Components shipped (v0.1)',
+        6, 'Components shipped (v0.2)',
         'What is already in the kit.',
     ))
     out.append(Spacer(1, 10))
     out.append(Paragraph(
-        'Eleven components are shipped in v0.1. Each has a Storybook story '
-        'with every variant, state and interactive control. When a Figma '
-        'source is listed, the component maps to a named entry in the Chekin '
-        'Dashboard Library; "Free-form" means the pattern exists in Figma '
-        'files but is not a named shared component.',
+        'Thirty-three components are shipped in v0.2. Each has a Storybook story '
+        'with every variant, state and interactive control. When a Figma source '
+        'is listed, the component maps to a named entry in the Chekin Dashboard '
+        'Library; "Free-form" means the pattern exists in Figma files but is '
+        'not a named shared component.',
         P_BODY,
     ))
     out.append(Spacer(1, 6))
+
+    out.append(Paragraph('Form + action', P_H3))
     out.append(basic_table(
         ['Component', 'Figma source', 'Notes'],
         [
-            ['Button', 'Button (component_set)', 'Variants primary / secondary / tertiary / destructive; sizes m / s / xs; shapes rounded (admin) and pill (AI).'],
-            ['Input', 'Free-form', 'Label, supporting text, error text; state auto-derived from value + errorText.'],
-            ['Checkbox', 'Free-form', 'Label plus optional description; indeterminate state supported.'],
+            ['Button', 'Button (component_set)', 'Variants primary/secondary/tertiary/destructive; sizes m/s/xs; shapes rounded (admin) + pill (AI).'],
+            ['IconButton', 'Icon button', '32/40/43px sizes; variants primary/secondary/ghost/danger; rounded or circle.'],
+            ['Input', 'Free-form', 'Label, supporting text, error text; state auto-derived.'],
+            ['Textarea', 'Free-form', 'Inherits Input style; 80px min-height; vertical resize.'],
+            ['Checkbox', 'Free-form', 'Label + optional description; indeterminate supported.'],
             ['Radio + RadioGroup', 'Free-form', 'Composed via Radix RadioGroup primitive.'],
             ['Switch', 'Controls / Toggle', '36x20 pill with knob; accepts optional label.'],
-            ['Select', '02. Dropdown Field (Single)', 'Radix Select wrapper plus a convenience <Select> with label / supportingText / errorText.'],
-            ['Textarea', 'Free-form', 'Inherits Input style; 80px min-height; vertical resize.'],
-            ['StatCard', 'Overview Panel', 'Icon chip + label + value + trend pill + optional caption.'],
-            ['RatingStars', 'Free-form', '0-5 with half-star support; Main Blue filled, Gray-3 empty.'],
-            ['LineChart', 'Free-form (Recharts)', 'Single-series area chart; blue line, 18% fill, Chekin tooltip.'],
-            ['Divider', 'Line primitive', 'Horizontal or vertical; solid or dashed.'],
+            ['Select', '02. Dropdown Field', 'Radix Select wrapper + convenience <Select>.'],
+            ['SelectableCard', 'Plan / Protection Type Box', 'Radio-style clickable card: icon + title + description + optional price.'],
         ],
-        [120, 160, CONTENT_W - 280],
+        [130, 140, CONTENT_W - 270],
+    ))
+    out.append(Spacer(1, 10))
+
+    out.append(Paragraph('Display', P_H3))
+    out.append(basic_table(
+        ['Component', 'Figma source', 'Notes'],
+        [
+            ['Badge', 'Status Badge', 'Tones x appearances (soft/solid/outline); optional dot.'],
+            ['Tag', 'Tag', 'Neutral label with optional remove.'],
+            ['Chip', 'Selected Properties Chip / Filter reel', 'Selectable filter with count + removal.'],
+            ['Avatar', 'Free-form', 'Initials or image; sizes xs/s/m/l.'],
+            ['FramedIcon', 'Framed Icon', 'Icon in a coloured frame; size + tone + shape.'],
+            ['ProgressBar', 'Free-form', 'Linear with optional label + value, tones.'],
+            ['StatCard', 'Overview Panel', 'Icon chip + label + value + trend pill + caption.'],
+            ['RatingStars', 'Free-form', '0-5 half-star; Main Blue filled.'],
+            ['LineChart', 'Free-form (Recharts)', 'Single-series area chart; Chekin tooltip.'],
+            ['Divider', 'Line primitive', 'Horizontal or vertical; solid or dashed.'],
+            ['Card', 'Free-form', 'Container + Header/Title/Description/Footer.'],
+            ['ExternalLink', 'Free-form', 'Anchor with arrow-out icon.'],
+            ['Breadcrumb', 'Free-form', 'Chevron-separated nav trail.'],
+            ['EmptyState', 'Free-form', 'Icon + title + description + optional action.'],
+        ],
+        [130, 140, CONTENT_W - 270],
+    ))
+    out.append(Spacer(1, 10))
+
+    out.append(Paragraph('Overlays', P_H3))
+    out.append(basic_table(
+        ['Component', 'Figma source', 'Notes'],
+        [
+            ['Dialog / Modal', 'Modal (Mobile)', 'Radix Dialog; sizes s/m/l; Header/Body/Footer + close.'],
+            ['Tooltip', 'Tooltip', 'Radix Tooltip; 4 sides; convenience wrapper.'],
+            ['HelpTooltip', 'Help Tooltip (16x16)', 'Small info-icon trigger + tooltip.'],
+            ['Popover', 'Free-form', 'Radix Popover; filter panels, date-picker content.'],
+            ['DropdownMenu', 'More Actions Button', 'Items + labels + separators.'],
+            ['Toast', 'Toast Notification', 'Radix Toast; tones; auto-dismiss + swipe.'],
+            ['Callout', 'Callout', 'Coloured left-border banner; 5 tones.'],
+        ],
+        [130, 140, CONTENT_W - 270],
+    ))
+    out.append(Spacer(1, 10))
+
+    out.append(Paragraph('Calendar family (Airbnb-style)', P_H3))
+    out.append(basic_table(
+        ['Component', 'Figma source', 'Notes'],
+        [
+            ['Calendar', 'Calendar (component_set)', 'react-day-picker v9; single/multiple/range modes; 1 or 2 months.'],
+            ['DatePicker', 'Date Input Field', 'Field + Popover + single-mode Calendar.'],
+            ['DateRangePicker', 'Free-form', 'Two-column date field + two-month Calendar in range mode.'],
+        ],
+        [130, 140, CONTENT_W - 270],
     ))
     out.append(Spacer(1, 14))
 
     out.append(Paragraph('Roadmap -- next to build', P_H3))
     out.append(Paragraph(
-        '<font color="#6B6B95">Action:</font> IconButton, DropdownMenu, ExternalLink, SplitButton.<br/>'
-        '<font color="#6B6B95">Display:</font> Badge, Chip, Tag, Avatar, FramedIcon, ProgressBar, '
-        'StatusCluster, SelectableCard.<br/>'
-        '<font color="#6B6B95">Overlays:</font> Dialog / Modal, Tooltip, HelpTooltip, Toast, Popover, Callout.<br/>'
-        '<font color="#6B6B95">Data & nav:</font> Card, Table, Tabs, Pagination, Accordion, EmptyState, '
-        'Breadcrumb, Toolbar.<br/>'
-        '<font color="#6B6B95">Calendar:</font> Calendar, DatePicker, DateRangePicker, TimePicker.<br/>'
-        '<font color="#6B6B95">Layout shells:</font> AppShell (Rail 56px + Sidebar 264px + TopBar + content), AIPanel, SettingsFooter.',
+        '<font color="#6B6B95">Data & nav:</font> Tabs, Accordion, Pagination, Toolbar, Table, SplitButton, StatusCluster.<br/>'
+        '<font color="#6B6B95">Calendar stack:</font> TimePicker.<br/>'
+        '<font color="#6B6B95">Layout shells:</font> AppShell (Rail 56px + Sidebar 264px + TopBar + content), AIPanel, SettingsFooter pattern.',
         P_BODY,
     ))
     return out
@@ -1340,7 +1386,7 @@ def build_pdf(output_path):
         rightMargin=MARGIN,
         topMargin=MARGIN + 10,
         bottomMargin=MARGIN + 10,
-        title='Chekin UI Kit - Frontend Handbook v0.1',
+        title='Chekin UI Kit - Frontend Handbook v0.2',
         author='Chekin',
     )
     doc._cur_section = 1
