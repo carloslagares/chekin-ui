@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@chekin/ui": ["../../packages/ui/src"],
+      "@chekin/tokens": ["../../packages/tokens/src"]
+    }
+  },
+  "include": [".storybook", "stories", "src"]
+}

@@ -1,0 +1,111 @@
+/**
+ * @chekin/tokens — CSS custom properties
+ *
+ * Source of truth for all visual primitives. Consumed by @chekin/ui, marketing
+ * sites, emails, and any other platform that can read CSS variables.
+ *
+ * Naming: --chekin-<category>-<name>.
+ */
+
+:root {
+  /* ── Brand ─────────────────────────────────────────────────────────── */
+  --chekin-color-brand-main-blue: #385BF8;
+  --chekin-color-brand-dark: #19194B;
+  --chekin-color-brand-navy: #161643;
+  --chekin-color-brand-gradient-start: #002CFA;
+  --chekin-color-brand-gradient-end: #274BF0;
+  --chekin-color-brand-red: #FF2467;
+
+  /* ── Blue accents ──────────────────────────────────────────────────── */
+  --chekin-color-blue-animation: #294DF1;
+  --chekin-color-blue-divider: #5F5CF0;
+  --chekin-color-blue-hover: #5975F5;
+  --chekin-color-blue-dark: #23235D;
+
+  /* ── Grays ─────────────────────────────────────────────────────────── */
+  --chekin-color-gray-1: #6B6B95;     /* secondary text, body */
+  --chekin-color-gray-2: #9696B9;     /* tertiary text, captions */
+  --chekin-color-gray-3: #DEDEEB;     /* borders, dividers */
+  --chekin-color-gray-separator: #CECEDE;
+  --chekin-color-white: #FFFFFF;
+
+  /* ── Surfaces ──────────────────────────────────────────────────────── */
+  --chekin-color-surface-input-empty: #F4F6F8;
+  --chekin-color-surface-autocomplete: #EFF6FF;
+  --chekin-color-surface-promo-lavender: #F4F4FD;
+  --chekin-color-surface-pressed-blue: #F0F3FF;
+  --chekin-color-surface-card: #EFEFFF;
+
+  /* ── Semantic text ─────────────────────────────────────────────────── */
+  --chekin-text-dark: var(--chekin-color-brand-navy);
+  --chekin-text-white: var(--chekin-color-white);
+  --chekin-text-brand: var(--chekin-color-brand-main-blue);
+  --chekin-text-danger: var(--chekin-color-brand-red);
+  --chekin-text-gray-dark: var(--chekin-color-gray-1);
+  --chekin-text-gray-medium: var(--chekin-color-gray-2);
+
+  /* ── Typography ────────────────────────────────────────────────────── */
+  --chekin-font-family-primary: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --chekin-font-family-display: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  --chekin-font-family-code: Poppins, -apple-system, BlinkMacSystemFont, monospace;
+
+  --chekin-font-weight-regular: 400;
+  --chekin-font-weight-medium: 500;
+  --chekin-font-weight-semibold: 600;
+  --chekin-font-weight-bold: 700;
+  --chekin-font-weight-extrabold: 800;
+
+  --chekin-font-size-h1: 70px;
+  --chekin-font-size-section-display: 64px;
+  --chekin-font-size-h2: 44px;
+  --chekin-font-size-h3: 36px;
+  --chekin-font-size-registration-h1: 31px;
+  --chekin-font-size-h4: 22px;
+  --chekin-font-size-body-highlight: 20px;
+  --chekin-font-size-body-list: 18px;
+  --chekin-font-size-registration-h2: 18px;
+  --chekin-font-size-body: 16px;
+  --chekin-font-size-footer-link: 15px;
+  --chekin-font-size-small: 14px;
+  --chekin-font-size-caption: 12px;
+
+  /* ── Spacing (8px base) ────────────────────────────────────────────── */
+  --chekin-space-0-5: 4px;
+  --chekin-space-1: 8px;
+  --chekin-space-1-25: 10px;
+  --chekin-space-1-375: 11px;
+  --chekin-space-2: 16px;
+  --chekin-space-3: 24px;
+  --chekin-space-4: 32px;
+  --chekin-space-5: 40px;
+  --chekin-space-6: 48px;
+
+  /* ── Radii ─────────────────────────────────────────────────────────── */
+  --chekin-radius-micro: 2px;
+  --chekin-radius-small: 4px;
+  --chekin-radius-input: 6px;
+  --chekin-radius-standard: 8px;
+  --chekin-radius-button: 12px;
+  --chekin-radius-card: 14px;
+  --chekin-radius-circle: 25px;
+  --chekin-radius-pill: 51px;
+  --chekin-radius-full: 200px;
+
+  /* ── Shadows ───────────────────────────────────────────────────────── */
+  --chekin-shadow-focus-ring: 0px 0px 0px 3px rgba(56, 91, 248, 0.2);
+  --chekin-shadow-subtle-outline: 0px 0px 0px 1px rgba(56, 91, 248, 0.2);
+  --chekin-shadow-solid-focus: 0px 0px 0px 1px #385BF8;
+  --chekin-shadow-card-default: 0px 0px 5px rgba(26, 148, 255, 0.173);
+  --chekin-shadow-card-hover: 0px 20px 25px rgba(26, 148, 255, 0.173);
+  --chekin-shadow-dropdown: 0px 5px 15px rgba(26, 148, 255, 0.16);
+  --chekin-shadow-large-elevation: 0px 31px 50px rgba(26, 140, 255, 0.1);
+  --chekin-shadow-xs-button: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  --chekin-shadow-promo-pill: 0px 2px 7.5px rgba(0, 0, 0, 0.1);
+
+  /* ── Breakpoints (for reference; typically used in config) ─────────── */
+  --chekin-breakpoint-mobile-small: 375px;
+  --chekin-breakpoint-mobile: 768px;
+  --chekin-breakpoint-tablet: 1024px;
+  --chekin-breakpoint-desktop-small: 1280px;
+  --chekin-breakpoint-desktop: 1440px;
+}

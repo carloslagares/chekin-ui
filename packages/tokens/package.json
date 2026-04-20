@@ -1,0 +1,21 @@
+{
+  "name": "@chekin/tokens",
+  "version": "0.0.1",
+  "description": "Chekin design tokens — CSS variables, JSON, and Tailwind preset",
+  "private": false,
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./tokens.css": "./src/tokens.css",
+    "./tokens.json": "./src/tokens.json",
+    "./tailwind-preset": "./src/tailwind-preset.js"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "build": "echo 'tokens are source files, nothing to build'",
+    "typecheck": "echo 'no ts in tokens'"
+  }
+}
