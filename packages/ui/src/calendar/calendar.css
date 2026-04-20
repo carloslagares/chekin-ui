@@ -1,0 +1,137 @@
+/**
+ * Chekin Calendar — styling layer on top of react-day-picker v9.
+ *
+ * Replaces the library's default CSS to match Chekin tokens and the Airbnb-style
+ * range-picker look: subtle hover, pale-blue "in range" band, solid Main Blue
+ * endpoints, soft pill-shaped selection.
+ */
+
+.chekin-rdp {
+  --rdp-accent-color: #385BF8;
+  --rdp-accent-background-color: #EFF6FF;
+  --rdp-range-middle-background-color: #EFF6FF;
+  --rdp-range-middle-color: #161643;
+  --rdp-today-color: #385BF8;
+  --rdp-day-height: 36px;
+  --rdp-day-width: 36px;
+  --rdp-font-family: var(--chekin-font-family-primary, Montserrat, sans-serif);
+  --rdp-weekday-padding: 8px 0;
+  font-family: var(--rdp-font-family);
+  color: #161643;
+}
+
+.chekin-rdp .rdp-months {
+  gap: 40px;
+}
+
+.chekin-rdp .rdp-month_caption {
+  font: 600 14px/20px var(--rdp-font-family);
+  color: #161643;
+  padding-bottom: 12px;
+}
+
+.chekin-rdp .rdp-nav {
+  gap: 4px;
+}
+
+.chekin-rdp .rdp-button_previous,
+.chekin-rdp .rdp-button_next {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: #6B6B95;
+  background: transparent;
+  transition: background-color 120ms ease-out;
+}
+.chekin-rdp .rdp-button_previous:hover,
+.chekin-rdp .rdp-button_next:hover {
+  background: #F4F6F8;
+  color: #161643;
+}
+.chekin-rdp .rdp-button_previous:focus-visible,
+.chekin-rdp .rdp-button_next:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 91, 248, 0.2);
+}
+
+.chekin-rdp .rdp-weekday {
+  font: 600 11px/16px var(--rdp-font-family);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #9696B9;
+}
+
+.chekin-rdp .rdp-day {
+  padding: 0;
+}
+
+.chekin-rdp .rdp-day_button {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  font: 500 13px/18px var(--rdp-font-family);
+  color: #161643;
+  background: transparent;
+  border: 0;
+  transition: background-color 120ms ease-out, color 120ms ease-out;
+  cursor: pointer;
+}
+.chekin-rdp .rdp-day_button:hover {
+  background: #F4F6F8;
+}
+.chekin-rdp .rdp-day_button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 91, 248, 0.2);
+}
+
+.chekin-rdp .rdp-outside .rdp-day_button {
+  color: #9696B9;
+}
+.chekin-rdp .rdp-disabled .rdp-day_button {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Today -- subtle blue underline-like tint on the label */
+.chekin-rdp .rdp-today .rdp-day_button {
+  color: #385BF8;
+  font-weight: 600;
+}
+
+/* Selection states (range + single) ----------------------------------- */
+
+/* single-mode selected day, or range endpoint */
+.chekin-rdp .rdp-selected .rdp-day_button {
+  background: #385BF8;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.chekin-rdp .rdp-selected .rdp-day_button:hover {
+  background: #385BF8;
+}
+
+/* Range middle days -- pale blue band, square corners so days touch */
+.chekin-rdp .rdp-range_middle {
+  background: #EFF6FF;
+}
+.chekin-rdp .rdp-range_middle .rdp-day_button {
+  background: transparent;
+  color: #161643;
+  border-radius: 0;
+  font-weight: 500;
+}
+
+/* Range endpoints -- preserve solid Main Blue + rounded outward edge */
+.chekin-rdp .rdp-range_start {
+  background: linear-gradient(90deg, transparent 50%, #EFF6FF 50%);
+}
+.chekin-rdp .rdp-range_end {
+  background: linear-gradient(90deg, #EFF6FF 50%, transparent 50%);
+}
+.chekin-rdp .rdp-range_start.rdp-range_end {
+  background: transparent;
+}
+.chekin-rdp .rdp-range_start .rdp-day_button,
+.chekin-rdp .rdp-range_end .rdp-day_button {
+  border-radius: 6px;
+}

@@ -12,6 +12,7 @@
     "@chekin/tokens": "workspace:*",
     "@chekin/ui": "workspace:*",
     "react": "^18.3.1",
+    "react-day-picker": "^9.11.0",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
