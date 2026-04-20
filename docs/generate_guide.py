@@ -70,7 +70,7 @@ MARGIN = 54
 FOOTER_Y = 36
 CONTENT_W = PAGE_W - 2 * MARGIN
 
-GUIDE_NAME = 'Chekin UI Kit  -  Frontend Handbook v0.2'
+GUIDE_NAME = 'Chekin UI Kit  -  Frontend Handbook v0.3'
 TOTAL_SECTIONS = 11
 
 # ---------------------------------------------------------- Text helpers ---
@@ -235,7 +235,7 @@ def draw_cover(canvas, doc):
 
     # Metadata block
     meta = [
-        ('Version:', 'v0.2  -  April 2026'),
+        ('Version:', 'v0.3  -  April 2026'),
         ('For:', 'Frontend  -  Backend  -  PM'),
         ('Tool:', 'pnpm monorepo  -  Storybook 8  -  Radix Primitives'),
     ]
@@ -986,16 +986,16 @@ def build_section_5():
 def build_section_6():
     out = []
     out.append(SectionHeader(
-        6, 'Components shipped (v0.2)',
+        6, 'Components shipped (v0.3)',
         'What is already in the kit.',
     ))
     out.append(Spacer(1, 10))
     out.append(Paragraph(
-        'Thirty-three components are shipped in v0.2. Each has a Storybook story '
-        'with every variant, state and interactive control. When a Figma source '
-        'is listed, the component maps to a named entry in the Chekin Dashboard '
-        'Library; "Free-form" means the pattern exists in Figma files but is '
-        'not a named shared component.',
+        'Forty-six components are shipped in v0.3 -- the Dashboard surface is '
+        'now effectively feature-complete. Each has a Storybook story with '
+        'every variant, state and interactive control. Three real-screen '
+        'example pages (Bookings, Properties, Property/Legal) show the whole '
+        'vocabulary composed in context.',
         P_BODY,
     ))
     out.append(Spacer(1, 6))
@@ -1052,6 +1052,36 @@ def build_section_6():
             ['DropdownMenu', 'More Actions Button', 'Items + labels + separators.'],
             ['Toast', 'Toast Notification', 'Radix Toast; tones; auto-dismiss + swipe.'],
             ['Callout', 'Callout', 'Coloured left-border banner; 5 tones.'],
+            ['Accordion', 'Accordion', 'Radix Accordion; single or multiple expanded items.'],
+        ],
+        [130, 140, CONTENT_W - 270],
+    ))
+    out.append(Spacer(1, 10))
+
+    out.append(Paragraph('Data & nav', P_H3))
+    out.append(basic_table(
+        ['Component', 'Figma source', 'Notes'],
+        [
+            ['Table', 'Table (component_set)', 'Semantic primitives: Table, TableHeader, TableBody, TableRow, TableHead (sortable), TableCell.'],
+            ['Tabs', 'Tabs (Framed)', 'Radix Tabs; underline style with Main Blue indicator.'],
+            ['Pagination', 'Table Pagination', 'Compact page-button row with ellipsis + first/last/prev/next.'],
+            ['Toolbar', 'Toolbar (bulk actions)', 'Navy bulk-action bar with selected count + close + actions slot.'],
+            ['SplitButton', 'Free-form', 'Primary action + attached dropdown chevron.'],
+            ['StatusCluster', 'Multi-dot pipeline', 'Compact multi-step status indicator with tooltip per step.'],
+        ],
+        [130, 140, CONTENT_W - 270],
+    ))
+    out.append(Spacer(1, 10))
+
+    out.append(Paragraph('Layout shells', P_H3))
+    out.append(basic_table(
+        ['Component', 'Figma source', 'Notes'],
+        [
+            ['AppShell', 'Free-form', 'Composition: Rail | Sidebar | Main | Aside; any column optional; full viewport.'],
+            ['Rail', 'Main Navigation', '56px icon-only primary nav with logo + items + footer slots; tooltip per item.'],
+            ['Sidebar', 'Sidebar', '264px secondary nav: heading + sections + items (active + badge).'],
+            ['TopBar', 'Free-form', 'Sticky 64px header; flex children.'],
+            ['AIPanel', 'Ask Vela panel', 'Right-side assistant panel: header + content + suggestions + composer slots.'],
         ],
         [130, 140, CONTENT_W - 270],
     ))
@@ -1061,19 +1091,37 @@ def build_section_6():
     out.append(basic_table(
         ['Component', 'Figma source', 'Notes'],
         [
-            ['Calendar', 'Calendar (component_set)', 'react-day-picker v9; single/multiple/range modes; 1 or 2 months.'],
+            ['Calendar', 'Calendar (component_set)', 'react-day-picker v9; single/multiple/range; 1 or 2 months horizontal.'],
             ['DatePicker', 'Date Input Field', 'Field + Popover + single-mode Calendar.'],
-            ['DateRangePicker', 'Free-form', 'Two-column date field + two-month Calendar in range mode.'],
+            ['DateRangePicker', 'Free-form', 'Two-column field + two-month Calendar in range mode.'],
+            ['TimePicker', 'Free-form', 'Select of time slots; configurable step + 24h/12h format.'],
         ],
         [130, 140, CONTENT_W - 270],
     ))
     out.append(Spacer(1, 14))
 
-    out.append(Paragraph('Roadmap -- next to build', P_H3))
+    out.append(Paragraph('Real-screen examples (Storybook)', P_H3))
     out.append(Paragraph(
-        '<font color="#6B6B95">Data & nav:</font> Tabs, Accordion, Pagination, Toolbar, Table, SplitButton, StatusCluster.<br/>'
-        '<font color="#6B6B95">Calendar stack:</font> TimePicker.<br/>'
-        '<font color="#6B6B95">Layout shells:</font> AppShell (Rail 56px + Sidebar 264px + TopBar + content), AIPanel, SettingsFooter pattern.',
+        'Three full-page compositions exercise the whole vocabulary in realistic '
+        'context and serve as acceptance tests for the kit:',
+        P_BODY,
+    ))
+    out.append(Paragraph(
+        '<b>Examples / Bookings page</b> -- AppShell + Rail + Sidebar + TopBar + SplitButton + Chip filters + Toolbar + Table (sortable, selectable) + StatusCluster + Pagination.<br/>'
+        '<b>Examples / Properties page</b> -- same shell + Breadcrumb + Card grid with ProgressBar setup indicator + Chip filters.<br/>'
+        '<b>Examples / Property Legal</b> -- shell + Breadcrumb + Tabs + Callout + Accordion + SelectableCard plan picker + Switch rows + sticky Save footer.',
+        P_BODY,
+    ))
+    out.append(Spacer(1, 10))
+
+    out.append(Paragraph('Roadmap -- next tracks', P_H3))
+    out.append(Paragraph(
+        'With the Dashboard surface feature-complete, remaining work is per-surface:<br/>'
+        '<font color="#6B6B95">Guest App / SDK:</font> Poppins type, pill buttons, tenant-themeable via <font name="Courier">branding/*</font> tokens.<br/>'
+        '<font color="#6B6B95">Host SDK:</font> Violet brand (<font name="Courier">#505077</font>), otherwise Dashboard-shaped components.<br/>'
+        '<font color="#6B6B95">Marketing Web:</font> Pill CTAs, gradient hero bands, Inter display type at 64-70px.<br/>'
+        '<font color="#6B6B95">Onboarding:</font> Inherits Web chrome + form-focused narrower layouts.<br/>'
+        '<font color="#6B6B95">Infra:</font> Chromatic visual regression, private npm publish as v1.0, Style Dictionary / Figma Code Connect sync.',
         P_BODY,
     ))
     return out
@@ -1386,7 +1434,7 @@ def build_pdf(output_path):
         rightMargin=MARGIN,
         topMargin=MARGIN + 10,
         bottomMargin=MARGIN + 10,
-        title='Chekin UI Kit - Frontend Handbook v0.2',
+        title='Chekin UI Kit - Frontend Handbook v0.3',
         author='Chekin',
     )
     doc._cur_section = 1
