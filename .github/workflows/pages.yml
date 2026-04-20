@@ -1,0 +1,79 @@
+name: Build & deploy Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python deps for the handbook generator
+        run: pip install --quiet reportlab
+
+      - name: Install workspace dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Storybook (static site)
+        run: pnpm build-storybook
+
+      - name: Regenerate the PDF handbook
+        run: python3 docs/generate_guide.py
+
+      - name: Assemble Pages artifact
+        run: |
+          rm -rf _site
+          mkdir -p _site/docs
+          # Storybook static output becomes the site root
+          cp -R apps/docs/storybook-static/. _site/
+          # Handbook PDF served from /docs/
+          cp docs/chekin-ui-kit-guide.pdf _site/docs/
+          # Tiny redirect/convenience page that links to both
+          cat > _site/handbook.html <<'EOF'
+          <!doctype html>
+          <meta charset="utf-8">
+          <title>Chekin UI Kit — Handbook</title>
+          <meta http-equiv="refresh" content="0; url=./docs/chekin-ui-kit-guide.pdf">
+          <p>Redirecting to the <a href="./docs/chekin-ui-kit-guide.pdf">Chekin UI Kit handbook (PDF)</a>…</p>
+          EOF
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
