@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Avatar } from '@chekin/ui';
 
 const meta: Meta<typeof Avatar> = {
-  title: 'Dashboard/Avatar',
+  title: 'Data display/Avatar',
   component: Avatar,
   tags: ['autodocs'],
   args: { name: 'Marta Sanz' },

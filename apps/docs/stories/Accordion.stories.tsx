@@ -8,7 +8,7 @@ import {
 } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Dashboard/Accordion',
+  title: 'Navigation/Accordion',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },
 };

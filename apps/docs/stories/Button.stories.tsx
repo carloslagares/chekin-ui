@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from '@chekin/ui';
 
 const meta: Meta<typeof Button> = {
-  title: 'Dashboard/Button',
+  title: 'Actions/Button',
   component: Button,
   tags: ['autodocs'],
   args: {

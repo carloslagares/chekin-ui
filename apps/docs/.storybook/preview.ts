@@ -3,6 +3,25 @@ import '../src/index.css';
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          'Introduction', ['Welcome', 'Installation', 'Contributing'],
+          'Foundations', ['Colors', 'Typography', 'Spacing', 'Radii', 'Shadows', 'Icons'],
+          'Actions',       '*',
+          'Forms',         '*',
+          'Data display',  '*',
+          'Feedback',      '*',
+          'Navigation',    '*',
+          'Overlays',      '*',
+          'Surfaces',      '*',
+          'Charts',        '*',
+          'Layouts',       '*',
+          'Patterns',      '*',
+          'Examples',      ['Dashboard', '*'],
+        ],
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

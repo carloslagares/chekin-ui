@@ -12,7 +12,7 @@ import {
 } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Dashboard/Dialog',
+  title: 'Overlays/Dialog',
   tags: ['autodocs'],
   parameters: {
     docs: {

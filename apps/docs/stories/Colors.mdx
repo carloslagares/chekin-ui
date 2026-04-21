@@ -1,0 +1,105 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Every colour below is exported as a CSS custom property from `@chekin/tokens`
+(e.g. `--chekin-blue`) and as a Tailwind class (e.g. `bg-chekin-blue`,
+`text-chekin-navy`).
+
+## Brand
+
+<SwatchGrid swatches={[
+  { name: 'Main Blue',      token: 'chekin-blue',     hex: '#385BF8', fg: 'light' },
+  { name: 'Navy (product)', token: 'chekin-navy',     hex: '#161643', fg: 'light' },
+  { name: 'Dark (marketing)', token: 'chekin-dark',   hex: '#19194B', fg: 'light' },
+  { name: 'Red',            token: 'chekin-red',      hex: '#FF2467', fg: 'light' },
+]} />
+
+## Blue accents
+
+<SwatchGrid swatches={[
+  { name: 'Blue Hover',     token: 'chekin-blue-hover',     hex: '#5975F5', fg: 'light' },
+  { name: 'Blue Animation', token: 'chekin-blue-animation', hex: '#294DF1', fg: 'light' },
+  { name: 'Blue Divider',   token: 'chekin-blue-divider',   hex: '#5F5CF0', fg: 'light' },
+  { name: 'Blue Dark',      token: 'chekin-blue-dark',      hex: '#23235D', fg: 'light' },
+]} />
+
+## Grays
+
+<SwatchGrid swatches={[
+  { name: 'Gray-1 (body)',    token: 'chekin-gray-1',     hex: '#6B6B95', fg: 'light' },
+  { name: 'Gray-2 (caption)', token: 'chekin-gray-2',     hex: '#9696B9', fg: 'light' },
+  { name: 'Gray-3 (border)',  token: 'chekin-gray-3',     hex: '#DEDEEB', fg: 'dark' },
+  { name: 'Separator',        token: 'chekin-separator',  hex: '#CECEDE', fg: 'dark' },
+]} />
+
+## Surfaces
+
+<SwatchGrid swatches={[
+  { name: 'Input empty',      token: 'chekin-surface-input-empty',  hex: '#F4F6F8', fg: 'dark' },
+  { name: 'Autocomplete',     token: 'chekin-surface-autocomplete', hex: '#EFF6FF', fg: 'dark' },
+  { name: 'Promo lavender',   token: 'chekin-surface-promo',        hex: '#F4F4FD', fg: 'dark' },
+  { name: 'Pressed blue',     token: 'chekin-surface-pressed',      hex: '#F0F3FF', fg: 'dark' },
+  { name: 'Card',             token: 'chekin-surface-card',         hex: '#EFEFFF', fg: 'dark' },
+]} />
+
+## Semantic (status)
+
+<SwatchGrid swatches={[
+  { name: 'Success text', token: '-',                   hex: '#0F9F80', fg: 'light' },
+  { name: 'Success bg',   token: '-',                   hex: '#E8FCF7', fg: 'dark' },
+  { name: 'Warn text',    token: '-',                   hex: '#B86A00', fg: 'light' },
+  { name: 'Warn bg',      token: '-',                   hex: '#FFF4E5', fg: 'dark' },
+  { name: 'Error text',   token: 'chekin-red',          hex: '#FF2467', fg: 'light' },
+  { name: 'Error bg',     token: '-',                   hex: '#FFE8EF', fg: 'dark' },
+]} />
+
+## Non-negotiables
+
+- Main Blue is **only** for accents, strokes, and CTAs — never a large background.
+- Headings use **Navy** (`#161643`) in-product or **Dark** (`#19194B`) in marketing. **Never pure black**.
+- Empty inputs are `#F4F6F8` (gray-tinted). Filled inputs gain a `#161643` 1px border to signal they have content.
+- Shadows are blue-tinted (`rgba(26,148,255, …)`) — never pure black shadows in-product.
+
+export const SwatchGrid = ({ swatches }) => (
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
+    gap: 12,
+    marginBlock: 16,
+  }}>
+    {swatches.map((s) => (
+      <div key={s.name} style={{
+        border: '1px solid #DEDEEB',
+        borderRadius: 14,
+        overflow: 'hidden',
+        background: '#fff',
+      }}>
+        <div style={{
+          height: 80,
+          background: s.hex,
+          color: s.fg === 'light' ? '#fff' : '#161643',
+          fontFamily: '"Montserrat", system-ui, sans-serif',
+          fontWeight: 600,
+          fontSize: 13,
+          padding: '10px 12px',
+          display: 'flex',
+          alignItems: 'flex-end',
+        }}>
+          {s.hex}
+        </div>
+        <div style={{
+          padding: '10px 12px',
+          fontFamily: '"Montserrat", system-ui, sans-serif',
+        }}>
+          <div style={{ fontWeight: 600, color: '#161643', fontSize: 13 }}>{s.name}</div>
+          <div style={{ color: '#6B6B95', fontSize: 12, fontFamily: 'ui-monospace, Menlo, monospace' }}>
+            {s.token !== '-' ? `--${s.token}` : '—'}
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+);

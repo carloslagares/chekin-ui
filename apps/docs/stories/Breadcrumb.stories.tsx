@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Breadcrumb, BreadcrumbItem } from '@chekin/ui';
 
 const meta: Meta<typeof Breadcrumb> = {
-  title: 'Dashboard/Breadcrumb',
+  title: 'Navigation/Breadcrumb',
   component: Breadcrumb,
   tags: ['autodocs'],
 };

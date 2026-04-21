@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Badge, Tabs, TabsContent, TabsList, TabsTrigger } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Dashboard/Tabs',
+  title: 'Navigation/Tabs',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },
 };

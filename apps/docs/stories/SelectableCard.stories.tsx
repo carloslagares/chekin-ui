@@ -12,7 +12,7 @@ function ShieldIcon() {
 }
 
 const meta: Meta<typeof SelectableCard> = {
-  title: 'Dashboard/SelectableCard',
+  title: 'Forms/SelectableCard',
   component: SelectableCard,
   tags: ['autodocs'],
   args: {

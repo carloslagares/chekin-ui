@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Pagination } from '@chekin/ui';
 
 const meta: Meta<typeof Pagination> = {
-  title: 'Dashboard/Pagination',
+  title: 'Data display/Pagination',
   component: Pagination,
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

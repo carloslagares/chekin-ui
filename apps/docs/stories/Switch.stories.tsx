@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Switch } from '@chekin/ui';
 
 const meta: Meta<typeof Switch> = {
-  title: 'Dashboard/Switch',
+  title: 'Forms/Switch',
   component: Switch,
   tags: ['autodocs'],
 };

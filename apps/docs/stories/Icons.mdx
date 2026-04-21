@@ -1,0 +1,68 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Icons" />
+
+# Icons
+
+Chekin uses **stroke-based** icons with a **1.5–2px** stroke. They inherit
+text color through `currentColor`, so one icon file works in every tone.
+
+## Sources
+
+- **Lucide** is the default library — it matches Chekin's stroke profile.
+- **Project-specific SVG** when Lucide doesn't have exactly the shape we
+  need (e.g. the Chekin logomark, the waving-hand welcome emoji, the
+  compliance shield with a check).
+
+Don't mix in filled-icon libraries (Heroicons Solid, Material Filled) —
+they clash visually with the stroke-based look.
+
+## Canonical sizes
+
+<IconSizeTable rows={[
+  { size: 12, stroke: 2,   use: 'Inline meta (clock next to a timestamp, chevron inside a pill).' },
+  { size: 14, stroke: 2,   use: 'Inside a chip or Tag; inside Button size="xs".' },
+  { size: 16, stroke: 1.8, use: 'Inside Button / IconButton size="s".' },
+  { size: 18, stroke: 1.6, use: 'Inside IconButton default; TopBar icons.' },
+  { size: 20, stroke: 1.6, use: 'ListRow leading icon; KPI tile icon chip.' },
+  { size: 24, stroke: 1.5, use: 'Section icons, feature cards, ModalHeader.' },
+  { size: 28, stroke: 1.5, use: 'EmptyState illustration core.' },
+  { size: 44, stroke: 1.5, use: 'Hero empty states (Recent activity no-data).' },
+]} />
+
+## Conventions
+
+- Always `stroke-linecap="round" stroke-linejoin="round"` — Chekin's hand-drawn softness.
+- Use `aria-hidden="true"` when the icon is decorative (accompanies text).
+- Use `aria-label="…"` when the icon carries meaning alone (a bare IconButton).
+- Color via `currentColor` — never hard-code `stroke="#385BF8"`.
+- Icon chips (`40×40` pale-blue circle + Main Blue icon) are Chekin's canonical "leading indicator" treatment — used on `StatCard`, `ListRow`, feature cards.
+
+export const IconSizeTable = ({ rows }) => (
+  <div style={{ fontFamily: '"Montserrat", system-ui, sans-serif', marginBlock: 16 }}>
+    {rows.map((r) => (
+      <div key={r.size} style={{
+        display: 'grid',
+        gridTemplateColumns: '80px 120px 1fr',
+        alignItems: 'center',
+        gap: 24,
+        padding: '12px 0',
+        borderBottom: '1px solid #DEDEEB',
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <svg width={r.size} height={r.size} viewBox="0 0 24 24" fill="none" stroke="#385BF8" strokeWidth={r.stroke} strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" />
+            <path d="M16 2v4M8 2v4M3 10h18" />
+          </svg>
+        </div>
+        <div>
+          <div style={{ color: '#161643', fontWeight: 600, fontSize: 13 }}>{r.size}px</div>
+          <div style={{ color: '#6B6B95', fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12 }}>
+            stroke {r.stroke}
+          </div>
+        </div>
+        <div style={{ color: '#6B6B95', fontSize: 13 }}>{r.use}</div>
+      </div>
+    ))}
+  </div>
+);

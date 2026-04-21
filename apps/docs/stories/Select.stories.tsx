@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Select, SelectItem, SelectSeparator, SelectGroup, SelectLabel } from '@chekin/ui';
 
 const meta: Meta<typeof Select> = {
-  title: 'Dashboard/Select',
+  title: 'Forms/Select',
   component: Select,
   tags: ['autodocs'],
   args: { label: 'Property', placeholder: 'Select a property…' },

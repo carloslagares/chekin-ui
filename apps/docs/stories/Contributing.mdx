@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction/Contributing" />
+
+# Contributing
+
+The kit grows when real product work hits a gap. The process keeps churn
+low and consistency high.
+
+## When to add a new component
+
+| Situation | What to do |
+|---|---|
+| You need a button / input / card | Use the existing primitive. |
+| You need a visual pattern that appears on **one** screen | Write it inline in the story file. Don't promote yet. |
+| The same composition shows up on a **second** screen | Copy-paste between stories. Still don't promote. |
+| You see it on a **third** screen | **Now** promote to `packages/ui/src/<name>/`. |
+
+The rule of three keeps the kit API small and intentional.
+
+## Adding a component (PR checklist)
+
+1. **Open an RFC issue** describing the component, props, and where it appears. Link the Figma frame and the canonical reference if any.
+2. **Build** it under `packages/ui/src/<kebab-name>/<PascalName>.tsx`.
+3. **Export** from `packages/ui/src/index.ts` alphabetically.
+4. **Document** with a Storybook story (`apps/docs/stories/<PascalName>.stories.tsx`) covering every variant and state.
+5. **Typecheck** with `pnpm typecheck` from the repo root — must pass.
+6. **Open the PR**. Include a Storybook screenshot in the description.
+
+## Design rules (non-negotiables)
+
+- **Main Blue `#385BF8`** is the singular brand accent. Never as a large background.
+- **Dashboard buttons** use 6px radius. Pill-shaped buttons are reserved for AI/conversational moments (Ask Chek, suggestion chips).
+- **Empty inputs** are `#F4F6F8` (gray-tinted), never pure white.
+- **Filled inputs** gain a `#161643` 1px border as the "this has content" signal.
+- **Hover** is an overlay (white/10 or black/10) — never a shadow change.
+- **Focus ring** is `3px rgba(56,91,248,0.2)` on every interactive.
+- **Disabled** is `opacity: 0.3` on the whole element — never gray out the color.
+- **Headings** use `#161643` (product navy) or `#19194B` (marketing dark). Never pure black.
+- **Shadows** are blue-tinted `rgba(26,148,255, …)` — never pure-black shadows in-product.
+
+## Versioning
+
+We use **Changesets**. Add one per PR that modifies a public API:
+
+```bash
+pnpm changeset
+```
+
+- Patch — bug fix, visual tweak.
+- Minor — new component, new prop (non-breaking).
+- Major — breaking prop change, removed component.
+
+## Owners
+
+- **DS lead designer:** TBD — assigned by Carlos.
+- **DS lead engineer:** TBD — assigned by Carlos.
+
+Ping either for RFC reviews. For emergency fixes, open a PR and tag both.

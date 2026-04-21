@@ -11,7 +11,7 @@ import {
 } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Dashboard/Toast',
+  title: 'Feedback/Toast',
   tags: ['autodocs'],
 };
 export default meta;

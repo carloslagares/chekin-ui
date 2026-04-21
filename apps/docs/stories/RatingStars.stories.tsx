@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { RatingStars } from '@chekin/ui';
 
 const meta: Meta<typeof RatingStars> = {
-  title: 'Dashboard/RatingStars',
+  title: 'Data display/RatingStars',
   component: RatingStars,
   tags: ['autodocs'],
   args: { value: 4.5 },

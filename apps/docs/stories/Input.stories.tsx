@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Input } from '@chekin/ui';
 
 const meta: Meta<typeof Input> = {
-  title: 'Dashboard/Input',
+  title: 'Forms/Input',
   component: Input,
   tags: ['autodocs'],
   args: {

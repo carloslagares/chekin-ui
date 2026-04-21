@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ProgressBar } from '@chekin/ui';
 
 const meta: Meta<typeof ProgressBar> = {
-  title: 'Dashboard/ProgressBar',
+  title: 'Feedback/ProgressBar',
   component: ProgressBar,
   tags: ['autodocs'],
   args: { value: 42 },

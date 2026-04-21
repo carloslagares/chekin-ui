@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Radio, RadioGroup } from '@chekin/ui';
 
 const meta: Meta<typeof RadioGroup> = {
-  title: 'Dashboard/Radio',
+  title: 'Forms/Radio',
   component: RadioGroup,
   tags: ['autodocs'],
 };

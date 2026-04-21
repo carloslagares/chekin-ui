@@ -11,7 +11,7 @@ function Sparkle() {
 }
 
 const meta: Meta<typeof FramedIcon> = {
-  title: 'Dashboard/FramedIcon',
+  title: 'Feedback/FramedIcon',
   component: FramedIcon,
   tags: ['autodocs'],
   args: { children: <Sparkle /> },

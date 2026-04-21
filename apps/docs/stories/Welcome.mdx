@@ -1,0 +1,71 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction/Welcome" />
+
+# Chekin UI Kit
+
+`@chekin/ui` is the shared React component library that powers every Chekin
+surface: the operator Dashboard, the Guest App, embedded Host SDKs, marketing
+landing pages and the onboarding flow. It replaces per-product visual
+divergence with a single versioned source of truth.
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16, marginTop: 24 }}>
+  <FeatureCard
+    emoji="📦"
+    title="Versioned npm package"
+    body="Consumed as @chekin/ui and @chekin/tokens via pnpm. Semver-controlled."
+  />
+  <FeatureCard
+    emoji="🎨"
+    title="Design tokens as code"
+    body="Colors, type, spacing, radii, shadows — exported as CSS vars, JSON, and a Tailwind preset."
+  />
+  <FeatureCard
+    emoji="🧪"
+    title="Storybook as documentation"
+    body="Every component has stories. PMs and backend devs use this as the live spec."
+  />
+  <FeatureCard
+    emoji="🔒"
+    title="Accessibility built-in"
+    body="Radix Primitives under every overlay and form control — keyboard nav, focus trap, ARIA, reduced motion."
+  />
+</div>
+
+## When to use
+
+- Any new Chekin frontend screen.
+- Refactors of existing surfaces — start with the Dashboard.
+- Backend-built admin tools that need to look like Chekin.
+- Marketing landing pages that need the brand.
+
+## The two sources of truth
+
+| Source | Role | URL |
+|---|---|---|
+| **Figma Dashboard Library** | Authoritative for *what* components exist and their intended behaviour. | `team Product Design · project 78354711` |
+| **Canonical preview** | Authoritative for *how* components look. | [carloslagares.github.io/chekin-dashboard-preview](https://carloslagares.github.io/chekin-dashboard-preview/) |
+
+When they disagree visually → **canonical wins**. When they disagree about what should exist → **Figma wins**.
+
+## Navigating this Storybook
+
+- **Foundations** — tokens (color, type, spacing, radii, shadows, icons).
+- **Actions / Forms / Data display / Feedback / Navigation / Overlays / Surfaces / Charts** — primitives, grouped by function.
+- **Layouts** — shells (AppShell, Rail, Sidebar, TopBar, AIPanel).
+- **Patterns** — recurring compositions (SetupChecklist, …).
+- **Examples** — full screens built entirely from kit pieces.
+
+export const FeatureCard = ({ emoji, title, body }) => (
+  <div style={{
+    border: '1px solid #DEDEEB',
+    borderRadius: 14,
+    padding: 20,
+    background: '#FFFFFF',
+    boxShadow: '0 0 5px 0 rgba(143,143,143,0.2)',
+  }}>
+    <div style={{ fontSize: 32, marginBottom: 8 }}>{emoji}</div>
+    <div style={{ fontWeight: 600, color: '#161643', marginBottom: 4, fontSize: 15 }}>{title}</div>
+    <div style={{ color: '#6B6B95', fontSize: 13, lineHeight: 1.45 }}>{body}</div>
+  </div>
+);

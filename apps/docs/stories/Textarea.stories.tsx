@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Textarea } from '@chekin/ui';
 
 const meta: Meta<typeof Textarea> = {
-  title: 'Dashboard/Textarea',
+  title: 'Forms/Textarea',
   component: Textarea,
   tags: ['autodocs'],
   args: {

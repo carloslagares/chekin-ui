@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+The primary typeface is **Montserrat** (400, 500, 600, 700, 800).
+
+- `Inter` is used for the 64px section display on the marketing site only.
+- `Poppins` is used inside code / data cells and inside the Guest App only.
+
+All numbers use tabular variants (`font-variant-numeric: tabular-nums`) so
+column widths don't jump as values change.
+
+## Product scale
+
+<TypeRow size={70} weight={700} lineHeight={84} label="H1 · hero"                   sample="Welcome, Maria 👋" />
+<TypeRow size={44} weight={700} lineHeight={52} label="H2 · page title"             sample="Today's agenda" />
+<TypeRow size={36} weight={700} lineHeight={44} label="H3 · section"                sample="Finish setting up Chekin" />
+<TypeRow size={22} weight={600} lineHeight={30} label="H4 · card title"             sample="Recent activity" />
+<TypeRow size={20} weight={500} lineHeight={28} label="Body highlight"              sample="One guest still hasn't submitted their ID." />
+<TypeRow size={16} weight={400} lineHeight={24} label="Body"                        sample="You're all set. Here's what's waiting for you." />
+<TypeRow size={14} weight={400} lineHeight={20} label="Small"                       sample="Links go out 48h before arrival." />
+<TypeRow size={12} weight={500} lineHeight={16} label="Caption · uppercase"         sample="AT A GLANCE" uppercase />
+
+## Marketing scale
+
+Section headers can go up to 64px (Inter, 700) for hero moments. On
+Dashboard, the max is 70px H1 and is reserved for the welcome hero —
+every other page uses 26–32px for its h1.
+
+## Rules
+
+- Product headings use **Navy** `#161643`. Marketing headings use **Dark** `#19194B`. Never pure black.
+- Line-height tightens as size grows (70/84 ≈ 1.2, 14/20 ≈ 1.43).
+- Avoid italics — never used in product or marketing.
+- Avoid underlines on non-link text.
+
+export const TypeRow = ({ size, weight, lineHeight, label, sample, uppercase }) => (
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: '200px 1fr',
+    alignItems: 'center',
+    gap: 24,
+    padding: '14px 0',
+    borderBottom: '1px solid #DEDEEB',
+    fontFamily: '"Montserrat", system-ui, sans-serif',
+  }}>
+    <div>
+      <div style={{ color: '#161643', fontWeight: 600, fontSize: 13 }}>{label}</div>
+      <div style={{ color: '#6B6B95', fontSize: 12, fontFamily: 'ui-monospace, Menlo, monospace' }}>
+        {size}px · {weight} · {lineHeight}
+      </div>
+    </div>
+    <div style={{
+      color: '#161643',
+      fontSize: size,
+      fontWeight: weight,
+      lineHeight: `${lineHeight}px`,
+      textTransform: uppercase ? 'uppercase' : 'none',
+      letterSpacing: uppercase ? '0.04em' : size >= 44 ? '-0.01em' : '0',
+    }}>
+      {sample}
+    </div>
+  </div>
+);

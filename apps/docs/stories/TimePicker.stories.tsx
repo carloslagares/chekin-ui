@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TimePicker } from '@chekin/ui';
 
 const meta: Meta<typeof TimePicker> = {
-  title: 'Dashboard/TimePicker',
+  title: 'Forms/TimePicker',
   component: TimePicker,
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

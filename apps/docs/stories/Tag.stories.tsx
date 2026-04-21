@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Tag } from '@chekin/ui';
 
 const meta: Meta<typeof Tag> = {
-  title: 'Dashboard/Tag',
+  title: 'Data display/Tag',
   component: Tag,
   tags: ['autodocs'],
   args: { children: 'Needs review' },

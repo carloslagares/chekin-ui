@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Badge } from '@chekin/ui';
 
 const meta: Meta<typeof Badge> = {
-  title: 'Dashboard/Badge',
+  title: 'Data display/Badge',
   component: Badge,
   tags: ['autodocs'],
   args: { children: 'Completed', tone: 'success', appearance: 'soft' },

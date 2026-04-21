@@ -1,0 +1,80 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Shadows" />
+
+# Shadows
+
+Chekin shadows are **blue-tinted** — never pure black — which keeps the
+product in the brand's atmosphere even at surface level. Four canonical
+elevations.
+
+<ShadowGrid items={[
+  {
+    token: 'shadow-chekin-focus',
+    css: '0 0 0 3px rgba(56,91,248,0.2)',
+    name: 'Focus ring',
+    use: 'Every interactive. On buttons, inputs, sidebar items — the 3px halo is the focus signal.',
+  },
+  {
+    token: 'shadow-chekin-card',
+    css: '0 0 5px 0 rgba(26,148,255,0.173)',
+    name: 'Card',
+    use: 'Resting elevation for cards, panels, KPI tiles.',
+  },
+  {
+    token: 'shadow-chekin-card-hover',
+    css: '0 20px 25px 0 rgba(26,148,255,0.173)',
+    name: 'Card hover',
+    use: 'On hover for interactive cards only. Static content keeps the resting shadow.',
+  },
+  {
+    token: 'shadow-chekin-dropdown',
+    css: '0 5px 15px 0 rgba(26,148,255,0.16)',
+    name: 'Dropdown',
+    use: 'Popovers, dropdown menus, tooltips, floating overlays.',
+  },
+]} />
+
+## Rules
+
+- **Shadows are never pure black** (`rgba(0,0,0, …)`). Use the blue-tinted
+  tokens so cards feel cool and cohesive instead of heavy.
+- **Hover is not a shadow bump on buttons.** Buttons get an overlay
+  (`white/10` or `black/10`). Only *interactive cards* (entire clickable
+  surfaces) elevate on hover.
+- **Focus ring is non-negotiable.** Every focusable element gets
+  `shadow-chekin-focus` on `:focus-visible`. Radix Primitives give this
+  for free; custom buttons must add it explicitly.
+
+export const ShadowGrid = ({ items }) => (
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+    gap: 24,
+    marginBlock: 24,
+    fontFamily: '"Montserrat", system-ui, sans-serif',
+  }}>
+    {items.map((s) => (
+      <div key={s.token} style={{
+        background: '#FDFDFF',
+        padding: 28,
+        borderRadius: 14,
+      }}>
+        <div style={{
+          height: 80,
+          background: '#fff',
+          borderRadius: 14,
+          boxShadow: s.css,
+          marginBottom: 16,
+        }} />
+        <div style={{ fontWeight: 600, color: '#161643', fontSize: 14 }}>{s.name}</div>
+        <div style={{ color: '#6B6B95', fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 11, marginTop: 2, wordBreak: 'break-all' }}>
+          {s.token}
+        </div>
+        <div style={{ color: '#6B6B95', fontSize: 12, lineHeight: 1.4, marginTop: 8 }}>
+          {s.use}
+        </div>
+      </div>
+    ))}
+  </div>
+);

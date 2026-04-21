@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { DatePicker } from '@chekin/ui';
 
 const meta: Meta<typeof DatePicker> = {
-  title: 'Dashboard/DatePicker',
+  title: 'Forms/DatePicker',
   component: DatePicker,
   tags: ['autodocs'],
 };

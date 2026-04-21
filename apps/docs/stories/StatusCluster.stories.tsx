@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { StatusCluster } from '@chekin/ui';
 
 const meta: Meta<typeof StatusCluster> = {
-  title: 'Dashboard/StatusCluster',
+  title: 'Data display/StatusCluster',
   component: StatusCluster,
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

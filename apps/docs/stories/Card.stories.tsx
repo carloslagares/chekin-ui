@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button, Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@chekin/ui';
 
 const meta: Meta<typeof Card> = {
-  title: 'Dashboard/Card',
+  title: 'Surfaces/Card',
   component: Card,
   tags: ['autodocs'],
 };

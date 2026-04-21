@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { HelpTooltip } from '@chekin/ui';
 
 const meta: Meta<typeof HelpTooltip> = {
-  title: 'Dashboard/HelpTooltip',
+  title: 'Overlays/HelpTooltip',
   component: HelpTooltip,
   tags: ['autodocs'],
 };

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button, Tooltip } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Dashboard/Tooltip',
+  title: 'Overlays/Tooltip',
   tags: ['autodocs'],
 };
 export default meta;

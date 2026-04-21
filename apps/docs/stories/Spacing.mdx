@@ -1,0 +1,66 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Spacing" />
+
+# Spacing
+
+Chekin uses an **8-point base** with two half-steps. Each value is exported
+as `--chekin-space-<n>` and a matching Tailwind utility
+(`gap-chekin-2`, `p-chekin-3`, etc.).
+
+<SpacingRuler rows={[
+  { token: 'space-0-5', px: 4,  use: 'Hairline gap — icon-to-badge, chip internals.' },
+  { token: 'space-1',   px: 8,  use: 'Tight row gap, chip padding, small form control gap.' },
+  { token: 'space-1-5', px: 12, use: 'Row padding inside cards.' },
+  { token: 'space-2',   px: 16, use: 'Default gap between sibling elements (grid cells, list rows).' },
+  { token: 'space-3',   px: 24, use: 'Card internal padding, major row spacing.' },
+  { token: 'space-4',   px: 32, use: 'Between page sections.' },
+  { token: 'space-5',   px: 40, use: 'Page-level margins (sidebar-free content).' },
+  { token: 'space-6',   px: 48, use: 'Hero padding top, rare — reserved for welcome screens.' },
+]} />
+
+## Rules
+
+- **Gaps before paddings.** Prefer `gap-chekin-2` on a flex container over
+  padding-right on every child.
+- **Don't invent in-between values.** If `24` feels too large and `16`
+  too small, re-evaluate the layout. Ad-hoc `20px` and `28px` are what
+  produce inconsistent screens.
+- **Mobile tweaks are OK** — use responsive variants (`md:gap-chekin-3`)
+  rather than custom paddings.
+
+export const SpacingRuler = ({ rows }) => (
+  <div style={{ fontFamily: '"Montserrat", system-ui, sans-serif', marginBlock: 16 }}>
+    {rows.map((r) => (
+      <div key={r.token} style={{
+        display: 'grid',
+        gridTemplateColumns: '160px 80px 1fr 1fr',
+        alignItems: 'center',
+        gap: 24,
+        padding: '12px 0',
+        borderBottom: '1px solid #DEDEEB',
+      }}>
+        <div style={{ fontFamily: 'ui-monospace, Menlo, monospace', color: '#161643', fontSize: 13 }}>
+          --chekin-{r.token}
+        </div>
+        <div style={{ color: '#6B6B95', fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 13, textAlign: 'right' }}>
+          {r.px}px
+        </div>
+        <div style={{
+          height: 24,
+          background: '#F0F3FF',
+          borderRadius: 4,
+          position: 'relative',
+        }}>
+          <div style={{
+            width: r.px,
+            height: '100%',
+            background: '#385BF8',
+            borderRadius: 4,
+          }} />
+        </div>
+        <div style={{ color: '#6B6B95', fontSize: 13 }}>{r.use}</div>
+      </div>
+    ))}
+  </div>
+);

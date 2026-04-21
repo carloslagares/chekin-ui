@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ExternalLink } from '@chekin/ui';
 
 const meta: Meta<typeof ExternalLink> = {
-  title: 'Dashboard/ExternalLink',
+  title: 'Actions/ExternalLink',
   component: ExternalLink,
   tags: ['autodocs'],
   args: { href: 'https://chekin.com', children: 'Read the help article' },

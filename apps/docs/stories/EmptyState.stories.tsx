@@ -11,7 +11,7 @@ function InboxIcon() {
 }
 
 const meta: Meta<typeof EmptyState> = {
-  title: 'Dashboard/EmptyState',
+  title: 'Feedback/EmptyState',
   component: EmptyState,
   tags: ['autodocs'],
   args: {

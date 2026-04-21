@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Callout } from '@chekin/ui';
 
 const meta: Meta<typeof Callout> = {
-  title: 'Dashboard/Callout',
+  title: 'Feedback/Callout',
   component: Callout,
   tags: ['autodocs'],
   args: {

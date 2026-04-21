@@ -4,7 +4,7 @@ import type { DateRange } from 'react-day-picker';
 import { DateRangePicker } from '@chekin/ui';
 
 const meta: Meta<typeof DateRangePicker> = {
-  title: 'Dashboard/DateRangePicker',
+  title: 'Forms/DateRangePicker',
   component: DateRangePicker,
   tags: ['autodocs'],
 };

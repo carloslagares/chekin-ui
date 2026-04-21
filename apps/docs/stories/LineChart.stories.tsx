@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LineChart } from '@chekin/ui';
 
 const meta: Meta<typeof LineChart> = {
-  title: 'Dashboard/LineChart',
+  title: 'Charts/LineChart',
   component: LineChart,
   tags: ['autodocs'],
 };

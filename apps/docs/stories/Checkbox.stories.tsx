@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Checkbox } from '@chekin/ui';
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Dashboard/Checkbox',
+  title: 'Forms/Checkbox',
   component: Checkbox,
   tags: ['autodocs'],
   args: { label: 'Send check-in reminder email' },

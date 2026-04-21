@@ -10,7 +10,7 @@ import {
 } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Dashboard/DropdownMenu',
+  title: 'Overlays/DropdownMenu',
   tags: ['autodocs'],
 };
 export default meta;

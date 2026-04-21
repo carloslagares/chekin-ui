@@ -1,0 +1,74 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introduction/Installation" />
+
+# Installation
+
+`@chekin/ui` is a pnpm workspace package. Until it's published to a private
+registry, consume it via the workspace protocol.
+
+## Prerequisites
+
+- **Node 20+** and **pnpm 10+** (see the root `package.json` `packageManager` field).
+- **Tailwind CSS v3** in your consumer app.
+
+## 1. Add the dependencies
+
+Inside your app's `package.json`:
+
+```json
+{
+  "dependencies": {
+    "@chekin/ui": "workspace:*",
+    "@chekin/tokens": "workspace:*"
+  }
+}
+```
+
+Then run `pnpm install` from the repo root.
+
+## 2. Include the token CSS
+
+Import the CSS custom properties once in your app root (e.g. `main.tsx`):
+
+```tsx
+import '@chekin/tokens/tokens.css';
+```
+
+This registers every Chekin design token as a CSS variable
+(`--chekin-blue`, `--chekin-space-2`, `--chekin-radius-card`, …).
+
+## 3. Extend Tailwind
+
+Your app's `tailwind.config.ts` should extend the Chekin preset:
+
+```ts
+import chekinPreset from '@chekin/tokens/tailwind-preset';
+
+export default {
+  presets: [chekinPreset],
+  content: [
+    './src/**/*.{ts,tsx}',
+    './node_modules/@chekin/ui/dist/**/*.js',
+  ],
+};
+```
+
+The preset wires Chekin's colors, spacing scale, radii, shadows, and font
+family into the Tailwind theme. You then write `bg-chekin-blue`,
+`rounded-chekin-card`, `shadow-chekin-focus`, etc.
+
+## 4. Import components
+
+```tsx
+import { Button, Card, Input, AppShell } from '@chekin/ui';
+```
+
+## Running locally
+
+```bash
+pnpm install          # install deps
+pnpm storybook        # http://localhost:6006 — this page
+pnpm typecheck        # tsc across all packages
+pnpm build            # build @chekin/ui + @chekin/tokens
+```

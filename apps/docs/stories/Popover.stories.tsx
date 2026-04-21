@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button, Popover, PopoverContent, PopoverTrigger, Checkbox } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Dashboard/Popover',
+  title: 'Overlays/Popover',
   tags: ['autodocs'],
 };
 export default meta;

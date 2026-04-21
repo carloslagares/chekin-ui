@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Divider } from '@chekin/ui';
 
 const meta: Meta<typeof Divider> = {
-  title: 'Dashboard/Divider',
+  title: 'Surfaces/Divider',
   component: Divider,
   tags: ['autodocs'],
 };

@@ -15,7 +15,7 @@ import {
  * Main Blue as the only accent, navy text, gray structure, no per-metric colors.
  */
 const meta: Meta = {
-  title: 'Examples/Dashboard Overview',
+  title: 'Examples/Dashboard/Overview',
   parameters: {
     layout: 'fullscreen',
     backgrounds: { default: 'dashboard' },

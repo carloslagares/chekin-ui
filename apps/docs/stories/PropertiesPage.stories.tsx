@@ -23,7 +23,7 @@ import {
 } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Examples/Properties page',
+  title: 'Examples/Dashboard/Properties',
   parameters: { layout: 'fullscreen', backgrounds: { default: 'dashboard' } },
 };
 export default meta;

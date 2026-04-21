@@ -11,7 +11,7 @@ function BellIcon() {
 }
 
 const meta: Meta<typeof IconButton> = {
-  title: 'Dashboard/IconButton',
+  title: 'Actions/IconButton',
   component: IconButton,
   tags: ['autodocs'],
   args: { label: 'Notifications', children: <BellIcon /> },

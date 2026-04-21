@@ -13,7 +13,7 @@ import {
 } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Dashboard/Table',
+  title: 'Data display/Table',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },
 };

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Chip } from '@chekin/ui';
 
 const meta: Meta<typeof Chip> = {
-  title: 'Dashboard/Chip',
+  title: 'Data display/Chip',
   component: Chip,
   tags: ['autodocs'],
   args: { children: 'Confirmed' },

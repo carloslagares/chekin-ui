@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button, Toolbar } from '@chekin/ui';
 
 const meta: Meta<typeof Toolbar> = {
-  title: 'Dashboard/Toolbar',
+  title: 'Navigation/Toolbar',
   component: Toolbar,
   tags: ['autodocs'],
   parameters: { layout: 'padded' },

@@ -32,7 +32,7 @@ import {
  * we're missing a primitive and should promote it into `packages/ui/src/`.
  */
 const meta: Meta = {
-  title: 'Examples/Dashboard Home',
+  title: 'Examples/Dashboard/Home',
   parameters: {
     layout: 'fullscreen',
     backgrounds: { default: 'dashboard' },

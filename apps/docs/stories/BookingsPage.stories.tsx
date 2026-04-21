@@ -33,7 +33,7 @@ import {
 } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Examples/Bookings page',
+  title: 'Examples/Dashboard/Bookings',
   parameters: {
     layout: 'fullscreen',
     backgrounds: { default: 'dashboard' },

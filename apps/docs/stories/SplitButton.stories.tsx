@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { DropdownMenuItem, DropdownMenuSeparator, SplitButton } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Dashboard/SplitButton',
+  title: 'Actions/SplitButton',
   tags: ['autodocs'],
   parameters: { layout: 'padded' },
 };

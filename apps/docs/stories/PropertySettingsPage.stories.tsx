@@ -30,7 +30,7 @@ import {
 } from '@chekin/ui';
 
 const meta: Meta = {
-  title: 'Examples/Property Legal',
+  title: 'Examples/Dashboard/Property Legal',
   parameters: { layout: 'fullscreen', backgrounds: { default: 'dashboard' } },
 };
 export default meta;

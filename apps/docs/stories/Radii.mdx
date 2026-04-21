@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Foundations/Radii" />
+
+# Radii
+
+Five canonical radii. Picking the wrong one is the single most common way
+a Chekin screen loses its visual identity.
+
+<RadiusGrid items={[
+  { token: 'rounded-chekin-input',    px: 6,  name: 'Input',    use: 'Dashboard buttons and inputs.' },
+  { token: 'rounded-chekin-standard', px: 8,  name: 'Standard', use: 'Inputs (large), overlays, tags.' },
+  { token: 'rounded-chekin-card',     px: 14, name: 'Card',     use: 'Panels, cards, KPI tiles, timeline cards.' },
+  { token: 'rounded-chekin-pill',     px: 51, name: 'Pill',     use: 'AI/conversational moments — Ask Chek, suggestion chips, marketing CTAs only.' },
+  { token: 'rounded-chekin-circle',   px: 25, name: 'Circle',   use: 'Icon buttons (e.g. 40×40 overlay pickers) and avatars.' },
+]} />
+
+## Rules
+
+- **Dashboard buttons are 6px.** Never pill-shaped inside admin UI. Pill
+  radius signals AI / conversational / marketing intent — mixing them
+  confuses hierarchy.
+- **Cards are 14px.** Inputs/overlays inside a card are 6–8px. Never match
+  the card's own radius to its contents.
+- **Don't invent a 10px or 12px radius.** If something feels wrong at 8,
+  the right move is usually 14, not 10.
+
+export const RadiusGrid = ({ items }) => (
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+    gap: 16,
+    marginBlock: 16,
+    fontFamily: '"Montserrat", system-ui, sans-serif',
+  }}>
+    {items.map((r) => (
+      <div key={r.token} style={{
+        border: '1px solid #DEDEEB',
+        borderRadius: 14,
+        padding: 16,
+        background: '#fff',
+      }}>
+        <div style={{
+          height: 64,
+          background: 'linear-gradient(180deg, #F0F3FF, #EFF6FF)',
+          border: '1px solid #385BF8',
+          borderRadius: r.px,
+          marginBottom: 12,
+        }} />
+        <div style={{ fontWeight: 600, color: '#161643', fontSize: 14 }}>{r.name}</div>
+        <div style={{ color: '#6B6B95', fontFamily: 'ui-monospace, Menlo, monospace', fontSize: 12, marginTop: 2 }}>
+          {r.token} · {r.px}px
+        </div>
+        <div style={{ color: '#6B6B95', fontSize: 12, lineHeight: 1.4, marginTop: 8 }}>
+          {r.use}
+        </div>
+      </div>
+    ))}
+  </div>
+);
